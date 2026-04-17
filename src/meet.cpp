@@ -66,6 +66,38 @@ double LinkedList<T>::getMean() {
     return total/static_cast<double>(size);
 }
 
+template<typename T>
+double LinkedList<T>::getMode() {
+    if (size == 0) {
+        throw std::out_of_range("Cannot get mode of empty list");
+    }
+
+    Link<T> *current = this->head;
+    int current_number = current->number;
+    int current_count = 0;
+    int top_number = current_number;
+    int top_count = 0;
+
+    while (current != nullptr) {
+
+        if (current->number != current_number) {
+            if (top_count < current_count) {
+                top_number = current_number;
+                top_count = current_count;
+            }
+            current_number = current->number;
+            current_count = 1;
+        } else {
+            current_count++;
+        }
+        current = current->next;
+    }
+    if (top_count < current_count) {
+        top_number = current_number;
+    }
+    return top_number;
+}
+
 template <typename T>
 LinkedList<T>::~LinkedList() {
     Link<T> *next = nullptr;

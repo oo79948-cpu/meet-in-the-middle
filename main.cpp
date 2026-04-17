@@ -23,6 +23,7 @@ int main() {
 
         std::cout << "Median: " << list.getMedian() << "\n";
         std::cout << "Mean: " << list.getMean() << "\n";
+        std::cout << "Mode: " << list.getMode() << "\n";
     } else {
         std::cout << "Could not open file" << std::endl;
         return 1;

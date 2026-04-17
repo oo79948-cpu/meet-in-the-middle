@@ -18,5 +18,5 @@ public:
     void add(T item);
     double getMedian();
     double getMean();
-
+    double getMode();
 };
